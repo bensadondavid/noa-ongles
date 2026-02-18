@@ -1,11 +1,15 @@
 import "server-only";
 
 const dictionary = {
-    fr : () => import('../dictionnaries/fr.json'),
-    he : () => import('../dictionnaries/he.json')
+    fr : () => import('../dictionaries/fr.json'),
+    he : () => import('../dictionaries/he.json')
 }
 
 export async function getDictionary(locale : 'fr' | 'he'){
+    
+    if (!dictionary[locale]) {
+        throw new Error("Locale not supported");
+    }
     const dict = await dictionary[locale]()
     return dict.default
 };

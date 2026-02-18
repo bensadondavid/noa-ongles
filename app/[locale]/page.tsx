@@ -2,7 +2,7 @@ import { getDictionary } from "@/lib/i18n/getDictionary"
 
 type Locale = "fr" | "he";
 
-async function page( {params} : {params : {locale : Locale}} ) {
+async function Page( {params} : {params : {locale : Locale}} ) {
 
   const dict = await getDictionary(params.locale)
 
@@ -14,4 +14,4 @@ async function page( {params} : {params : {locale : Locale}} ) {
 
 }
 
-export default page
+export default Page
